@@ -1,0 +1,562 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.portfolio:task-manager-api >-------------------
+[INFO] Building task-manager-api 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ task-manager-api ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ task-manager-api ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ task-manager-api ---
+[INFO] skip non existing resourceDirectory C:\Users\tibia\IdeaProjects\task-manager-api\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ task-manager-api ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ task-manager-api ---
+[WARNING] useSystemClassLoader setting has no effect when not forking
+[WARNING] The parameter forkCount should likely not be 0. Forking a JVM for tests improves test accuracy. Ensure to have a <forkCount> >= 1.
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] Running com.portfolio.taskmanagerapi.ApiFlowTests
+22:30:13.194 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.portfolio.taskmanagerapi.ApiFlowTests]: ApiFlowTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:30:13.329 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.portfolio.taskmanagerapi.TaskManagerApiApplication for test class com.portfolio.taskmanagerapi.ApiFlowTests
+22:30:13.454 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.portfolio.taskmanagerapi.ApiFlowTests]: ApiFlowTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:30:13.457 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.portfolio.taskmanagerapi.TaskManagerApiApplication for test class com.portfolio.taskmanagerapi.ApiFlowTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-10-27T22:30:13.910-03:00  INFO 10972 --- [task-manager-api] [           main] c.portfolio.taskmanagerapi.ApiFlowTests  : Starting ApiFlowTests using Java 21.0.11 with PID 10972 (started by tibia in C:\Users\tibia\IdeaProjects\task-manager-api)
+2026-10-27T22:30:13.913-03:00  INFO 10972 --- [task-manager-api] [           main] c.portfolio.taskmanagerapi.ApiFlowTests  : No active profile set, falling back to 1 default profile: "default"
+2026-10-27T22:30:14.964-03:00  INFO 10972 --- [task-manager-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-27T22:30:15.035-03:00  INFO 10972 --- [task-manager-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 2 JPA repository interfaces.
+2026-10-27T22:30:15.684-03:00  INFO 10972 --- [task-manager-api] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-27T22:30:15.801-03:00  INFO 10972 --- [task-manager-api] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.13.Final
+2026-10-27T22:30:16.527-03:00  INFO 10972 --- [task-manager-api] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-27T22:30:16.574-03:00  INFO 10972 --- [task-manager-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-27T22:30:16.793-03:00  INFO 10972 --- [task-manager-api] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@93cc5eb
+2026-10-27T22:30:16.795-03:00  INFO 10972 --- [task-manager-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-27T22:30:16.836-03:00  WARN 10972 --- [task-manager-api] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-10-27T22:30:16.869-03:00  INFO 10972 --- [task-manager-api] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/task_manager_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: task_manager_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-27T22:30:18.252-03:00  INFO 10972 --- [task-manager-api] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-27T22:30:18.354-03:00  INFO 10972 --- [task-manager-api] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-27T22:30:18.449-03:00  INFO 10972 --- [task-manager-api] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-27T22:30:18.795-03:00  WARN 10972 --- [task-manager-api] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-27T22:30:19.577-03:00  INFO 10972 --- [task-manager-api] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-27T22:30:19.578-03:00  INFO 10972 --- [task-manager-api] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-27T22:30:19.582-03:00  INFO 10972 --- [task-manager-api] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-10-27T22:30:19.674-03:00  INFO 10972 --- [task-manager-api] [           main] c.portfolio.taskmanagerapi.ApiFlowTests  : Started ApiFlowTests in 6.123 seconds (process running for 11.433)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    insert 
+    into
+        users
+        (email, password, id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    insert 
+    into
+        tasks
+        (created_at, description, status, title, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.status,
+        t1_0.title,
+        t1_0.user_id 
+    from
+        tasks t1_0 
+    where
+        t1_0.user_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.status,
+        t1_0.title,
+        t1_0.user_id 
+    from
+        tasks t1_0 
+    where
+        t1_0.user_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.status,
+        t1_0.title,
+        t1_0.user_id 
+    from
+        tasks t1_0 
+    where
+        t1_0.id=? 
+        and t1_0.user_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    update
+        tasks 
+    set
+        description=?,
+        status=?,
+        title=?,
+        user_id=? 
+    where
+        id=?
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.status,
+        t1_0.title,
+        t1_0.user_id 
+    from
+        tasks t1_0 
+    where
+        t1_0.id=? 
+        and t1_0.user_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    update
+        tasks 
+    set
+        description=?,
+        status=?,
+        title=?,
+        user_id=? 
+    where
+        id=?
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.status,
+        t1_0.title,
+        t1_0.user_id 
+    from
+        tasks t1_0 
+    where
+        t1_0.id=? 
+        and t1_0.user_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    insert 
+    into
+        users
+        (email, password, id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    insert 
+    into
+        tasks
+        (created_at, description, status, title, user_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.status,
+        t1_0.title,
+        t1_0.user_id 
+    from
+        tasks t1_0 
+    where
+        t1_0.user_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    insert 
+    into
+        users
+        (email, password, id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.status,
+        t1_0.title,
+        t1_0.user_id 
+    from
+        tasks t1_0 
+    where
+        t1_0.user_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.status,
+        t1_0.title,
+        t1_0.user_id 
+    from
+        tasks t1_0 
+    where
+        t1_0.id=? 
+        and t1_0.user_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.status,
+        t1_0.title,
+        t1_0.user_id 
+    from
+        tasks t1_0 
+    where
+        t1_0.id=? 
+        and t1_0.user_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.status,
+        t1_0.title,
+        t1_0.user_id 
+    from
+        tasks t1_0 
+    where
+        t1_0.id=? 
+        and t1_0.user_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    insert 
+    into
+        users
+        (email, password, id) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.881 s -- in com.portfolio.taskmanagerapi.ApiFlowTests
+[INFO] Running com.portfolio.taskmanagerapi.TaskManagerApiApplicationTests
+2026-10-27T22:30:21.889-03:00  INFO 10972 --- [task-manager-api] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.portfolio.taskmanagerapi.TaskManagerApiApplicationTests]: TaskManagerApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-27T22:30:21.893-03:00  INFO 10972 --- [task-manager-api] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.portfolio.taskmanagerapi.TaskManagerApiApplication for test class com.portfolio.taskmanagerapi.TaskManagerApiApplicationTests
+2026-10-27T22:30:21.895-03:00  INFO 10972 --- [task-manager-api] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.portfolio.taskmanagerapi.TaskManagerApiApplicationTests]: TaskManagerApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-27T22:30:21.896-03:00  INFO 10972 --- [task-manager-api] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.portfolio.taskmanagerapi.TaskManagerApiApplication for test class com.portfolio.taskmanagerapi.TaskManagerApiApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-10-27T22:30:21.934-03:00  INFO 10972 --- [task-manager-api] [           main] c.p.t.TaskManagerApiApplicationTests     : Starting TaskManagerApiApplicationTests using Java 21.0.11 with PID 10972 (started by tibia in C:\Users\tibia\IdeaProjects\task-manager-api)
+2026-10-27T22:30:21.934-03:00  INFO 10972 --- [task-manager-api] [           main] c.p.t.TaskManagerApiApplicationTests     : No active profile set, falling back to 1 default profile: "default"
+2026-10-27T22:30:22.123-03:00  INFO 10972 --- [task-manager-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-27T22:30:22.143-03:00  INFO 10972 --- [task-manager-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
+2026-10-27T22:30:22.228-03:00  INFO 10972 --- [task-manager-api] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-27T22:30:22.262-03:00  INFO 10972 --- [task-manager-api] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-27T22:30:22.264-03:00  INFO 10972 --- [task-manager-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-27T22:30:22.312-03:00  INFO 10972 --- [task-manager-api] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@4a242227
+2026-10-27T22:30:22.313-03:00  INFO 10972 --- [task-manager-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-27T22:30:22.318-03:00  WARN 10972 --- [task-manager-api] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-10-27T22:30:22.323-03:00  INFO 10972 --- [task-manager-api] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/task_manager_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: task_manager_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-27T22:30:22.369-03:00  INFO 10972 --- [task-manager-api] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-27T22:30:22.409-03:00  INFO 10972 --- [task-manager-api] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-27T22:30:22.455-03:00  WARN 10972 --- [task-manager-api] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-27T22:30:22.574-03:00  INFO 10972 --- [task-manager-api] [           main] c.p.t.TaskManagerApiApplicationTests     : Started TaskManagerApiApplicationTests in 0.673 seconds (process running for 14.333)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.691 s -- in com.portfolio.taskmanagerapi.TaskManagerApiApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.932 s
+[INFO] Finished at: 2026-10-27T22:30:22-03:00
+[INFO] ------------------------------------------------------------------------
+2026-10-27T22:30:22.607-03:00  INFO 10972 --- [task-manager-api] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-27T22:30:22.609-03:00  INFO 10972 --- [task-manager-api] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-27T22:30:22.613-03:00  INFO 10972 --- [task-manager-api] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-27T22:30:22.616-03:00  INFO 10972 --- [task-manager-api] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-27T22:30:22.617-03:00  INFO 10972 --- [task-manager-api] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-10-27T22:30:22.703-03:00  INFO 10972 --- [task-manager-api] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
