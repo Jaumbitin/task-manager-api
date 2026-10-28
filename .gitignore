@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Local configuration and generated artifacts
+work/
+*.log
+.env
+.env.*
+!.env.example
+application-local.properties

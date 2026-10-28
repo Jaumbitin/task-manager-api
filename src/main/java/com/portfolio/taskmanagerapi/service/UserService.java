@@ -16,7 +16,8 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     public UserResponseDTO createUser(UserRequestDTO dto) {
-        // Regra de negócio: não permite e-mails duplicados
+        if (dto.password().length() < 8) throw new org.springframework.web.server.ResponseStatusException(org.springframework.http.HttpStatus.BAD_REQUEST, "Use uma senha com pelo menos 8 caracteres");
+        // Nao permite e-mails duplicados
         if (userRepository.findByEmail(dto.email()).isPresent()) {
             throw new org.springframework.web.server.ResponseStatusException(org.springframework.http.HttpStatus.CONFLICT, "Este email ja esta cadastrado");
         }

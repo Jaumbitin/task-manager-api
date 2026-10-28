@@ -20,6 +20,7 @@ public class Task {
     @Column(nullable = false)
     private String title;
 
+    @Column(length = 2000)
     private String description;
 
     @Enumerated(EnumType.STRING)

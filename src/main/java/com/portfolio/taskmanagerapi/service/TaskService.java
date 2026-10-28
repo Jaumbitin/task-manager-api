@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+@org.springframework.transaction.annotation.Transactional
 @Service
 @RequiredArgsConstructor
 public class TaskService {
@@ -48,7 +49,7 @@ public class TaskService {
                 .collect(Collectors.toList());
     }
 
-    // Método utilitário para isolar a lógica de conversão (Anti-Vibe Coding)
+    // Atualiza somente tarefas pertencentes ao usuario autenticado.
     public TaskResponseDTO updateTask(UUID taskId, UUID userId, TaskRequestDTO dto) {
         Task task = ownedTask(taskId, userId);
         task.setTitle(dto.title());
