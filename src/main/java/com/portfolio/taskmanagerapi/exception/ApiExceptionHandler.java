@@ -9,6 +9,11 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {
+    @ExceptionHandler(org.springframework.web.method.annotation.MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ProblemDetail> invalidParameter(Exception ex) {
+        return ResponseEntity.badRequest().body(ProblemDetail.forStatusAndDetail(
+                HttpStatus.BAD_REQUEST, "Parametro de rota invalido"));
+    }
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<ProblemDetail> status(ResponseStatusException ex) {
         return ResponseEntity.status(ex.getStatusCode()).body(ProblemDetail.forStatusAndDetail(

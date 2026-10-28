@@ -97,4 +97,22 @@ class ApiFlowTests {
                 .header("Access-Control-Request-Method", "POST").header("Access-Control-Request-Headers", "authorization,content-type"))
                 .andExpect(status().isOk()).andExpect(header().string("Access-Control-Allow-Origin", "http://localhost:5173"));
     }
+
+    @Test
+    void rejectsOversizedInputAndMalformedAuthorization() throws Exception {
+        String email = UUID.randomUUID() + "@example.com";
+        String token = register(email);
+        mvc.perform(get("/api/tasks").header("Authorization", token)).andExpect(status().isUnauthorized());
+        mvc.perform(get("/api/tasks").header("Authorization", "bearer " + token)).andExpect(status().isOk());
+        mvc.perform(put("/api/tasks/not-a-uuid").header("Authorization", "Bearer " + token)
+                .contentType("application/json").content("{\"title\":\"ok\"}")).andExpect(status().isBadRequest());
+        mvc.perform(post("/api/tasks").header("Authorization", "Bearer " + token)
+                .contentType("application/json").content("{\"title\":\"" + "x".repeat(256) + "\"}")).andExpect(status().isBadRequest());
+        mvc.perform(post("/api/tasks").header("Authorization", "Bearer " + token)
+                .contentType("application/json").content("{\"title\":\"ok\",\"description\":\"" + "x".repeat(2001) + "\"}")).andExpect(status().isBadRequest());
+        mvc.perform(post("/api/users").contentType("application/json")
+                .content("{\"email\":\"long@example.com\",\"password\":\"" + "é".repeat(37) + "\"}")).andExpect(status().isBadRequest());
+        mvc.perform(post("/api/users").contentType("application/json")
+                .content("{\"email\":\"short@example.com\",\"password\":\"123\"}")).andExpect(status().isBadRequest());
+    }
 }

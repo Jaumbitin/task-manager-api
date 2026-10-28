@@ -1,0 +1,39 @@
+name: API tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        database: [h2, postgres]
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_DB: task_manager_test
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: ci-test-only-password
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U test_user -d task_manager_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: H2
+        if: matrix.database == 'h2'
+        run: ./mvnw --batch-mode verify
+      - name: PostgreSQL
+        if: matrix.database == 'postgres'
+        env:
+          TEST_DB_URL: jdbc:postgresql://localhost:5432/task_manager_test
+          TEST_DB_USERNAME: test_user
+          TEST_DB_PASSWORD: ci-test-only-password
+          TEST_DB_DRIVER: org.postgresql.Driver
+        run: ./mvnw --batch-mode verify

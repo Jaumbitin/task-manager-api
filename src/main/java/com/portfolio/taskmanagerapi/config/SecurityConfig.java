@@ -27,10 +27,21 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .cors(org.springframework.security.config.Customizer.withDefaults())
-                .exceptionHandling(e -> e.authenticationEntryPoint((request, response, exception) -> response.sendError(401)))
+                .exceptionHandling(e -> e
+                        .authenticationEntryPoint((request, response, exception) -> {
+                            response.setStatus(401);
+                            response.setContentType("application/problem+json");
+                            response.getWriter().write("{\"status\":401,\"title\":\"Unauthorized\",\"detail\":\"Autenticacao necessaria\"}");
+                        })
+                        .accessDeniedHandler((request, response, exception) -> {
+                            response.setStatus(403);
+                            response.setContentType("application/problem+json");
+                            response.getWriter().write("{\"status\":403,\"title\":\"Forbidden\",\"detail\":\"Acesso negado\"}");
+                        }))
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        .dispatcherTypeMatchers(jakarta.servlet.DispatcherType.ERROR).permitAll()
                         // Rotas públicas de autenticação/registro de usuários
                         .requestMatchers(HttpMethod.POST, "/api/users", "/api/auth/login").permitAll()
                         // Qualquer outra rota (como as tarefas) exige estar autenticado com JWT

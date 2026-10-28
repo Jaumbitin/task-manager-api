@@ -2,51 +2,39 @@ package com.portfolio.taskmanagerapi.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.portfolio.taskmanagerapi.domain.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
+import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 
 @Service
 public class TokenService {
+    private final Algorithm algorithm;
 
-    // A senha secreta para assinar o token fica escondida no application.properties
-    @Value("${api.security.token.secret}")
-    private String secret;
+    public TokenService(@Value("${api.security.token.secret}") String secret) {
+        if (secret == null || secret.getBytes(StandardCharsets.UTF_8).length < 32)
+            throw new IllegalStateException("JWT_SECRET deve conter pelo menos 32 bytes");
+        algorithm = Algorithm.HMAC256(secret);
+    }
 
     public String generateToken(User user) {
-        try {
-            Algorithm algorithm = Algorithm.HMAC256(secret);
-            return JWT.create()
-                    .withIssuer("task-manager-api")
-                    .withSubject(user.getEmail()) // Identidade principal do usuário
-                    .withClaim("userId", user.getId().toString()) // O ID que o frontend vai precisar
-                    .withExpiresAt(generateExpirationDate())
-                    .sign(algorithm);
-        } catch (JWTCreationException exception) {
-            throw new RuntimeException("Erro ao gerar o token JWT", exception);
-        }
+        return JWT.create()
+                .withIssuer("task-manager-api")
+                .withSubject(user.getEmail())
+                .withClaim("userId", user.getId().toString())
+                .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
+                .sign(algorithm);
     }
 
-    private Instant generateExpirationDate() {
-        // Token válido por 2 horas
-        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
-    }
     public String validateToken(String token) {
         try {
-            Algorithm algorithm = Algorithm.HMAC256(secret);
-            return JWT.require(algorithm)
-                    .withIssuer("task-manager-api")
-                    .build()
-                    .verify(token)
-                    .getSubject();
-        } catch (JWTVerificationException exception) {
-            return ""; // Se o token estiver expirado ou alterado, retorna vazio
+            var decoded = JWT.require(algorithm).withIssuer("task-manager-api").build().verify(token);
+            return decoded.getExpiresAt() != null && decoded.getSubject() != null ? decoded.getSubject() : "";
+        } catch (JWTVerificationException | IllegalArgumentException exception) {
+            return "";
         }
     }
 }
