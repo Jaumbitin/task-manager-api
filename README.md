@@ -2,7 +2,17 @@
 
 API REST de tarefas pessoais em **Java 21 + Spring Boot**, com PostgreSQL,
 autenticação JWT e senhas protegidas por BCrypt. É o backend do projeto separado
-`task-manager-desktop` (JavaFX).
+[Task Manager Desktop](https://github.com/Jaumbitin/task-manager-desktop) (JavaFX).
+
+## Navegação
+
+- [O que está implementado](#o-que-está-implementado)
+- [Executar localmente](#executar-localmente)
+- [Usar a API](#usar-a-api)
+- [Testar](#testar)
+- [Organização](#organização)
+- [Credenciais presentes no histórico](#credenciais-presentes-no-histórico)
+- [Escopo e próximos passos](#escopo-e-próximos-passos)
 
 ## O que está implementado
 
@@ -126,6 +136,10 @@ src/main/java/com/portfolio/taskmanagerapi/
 
 Veja [arquitetura](docs/ARCHITECTURE.md), [roteiro de validação](docs/TESTING.md)
 e [limites de segurança](docs/SECURITY.md).
+
+## Credenciais presentes no histórico
+
+Uma versão anterior de `src/main/resources/application.properties` publicou uma senha de banco e um segredo JWT como valores fixos. A versão atual usa configuração local ou variáveis de ambiente. Se os valores antigos foram utilizados em qualquer ambiente, substitua a senha do banco e a chave de assinatura; a remoção do arquivo atual não revoga credenciais nem apaga commits antigos. Não reutilize exemplos e valores de teste em produção.
 
 ## Escopo e próximos passos
 
